@@ -1,33 +1,37 @@
 name: deploy_frontend
-#Deploys when push is made from the frontend folder
+#Deploys when push is made from frontedn folder
 
 on:
-    push:
+    push: 
         branches: [ main ]
         paths:
         - 'frontend/**'
 
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
+  build: 
+    runs on: ubuntu-latest
+    steps: 
+    - uses: actions/checout@v2
     - uses: azure/login@v1
-      with:
+      with: 
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
-      with:
+      with: 
+        azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name cloudresumestg  -d '$web' -s frontend/
-    - name: Purge CDN endpoint
+            az storage blob upload-batch --account-name cloudresumestg -d '$web' -s frontend/
+    - name: Purge CDN endpoint 
       uses: azure/CLI@v1
-      with:
+      with: 
+        azcliversion: 2.0.72
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "CloudResume" --name "CloudResumeProject" --resource-group "cloudresume-rg"
+            az cdn endpoint purge --content-paths  "/*" --profile-name "CloudResume" --name "CloudResumeProject" --resource-group "cloudresume-rg"
 
-  # Azure logout
-    - name: logout
-      run: |
-            az logout
+          #Azure logout 
+          - name: logout
+            run: |
+                  az logout
+
