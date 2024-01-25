@@ -19,6 +19,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Set active Azure account
+        run: az account set --subscription 902c8a69-f298-4bd7-b44a-2c47f1a637ee
+        env:
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
       - name: Upload to blob storage
         uses: azure/CLI@v1
         with:
