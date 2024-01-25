@@ -39,6 +39,5 @@ jobs:
             az cdn endpoint purge --content-paths "/*" --profile-name "CloudResume" --name "CloudResumeProject" --resource-group "cloudresume-rg"
 
       # Azure logout
-      - name: logout
-        run: |
-          az logout
+      - name: Logout
+        run: az logout
