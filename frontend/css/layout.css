@@ -52,9 +52,10 @@ header .banner {
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;s
+   padding-bottom: 30px;
    text-align: center;
 }
+
 
 header .banner-text { width: 100%; }
 header .banner-text h1 {
@@ -325,36 +326,129 @@ ul#nav li.current a { color: #F06000; }
    border-radius: 3px 0 0 3px;
 }
 
+/* Define keyframes for the animation */
+@keyframes photoshop {
+   0% {
+       opacity: 0;
+       transform: scale(0.5);
+   }
+   50% {
+       opacity: 1;
+       transform: scale(1.2);
+   }
+   100% {
+       opacity: 0;
+       transform: scale(1);
+   }
+}
+
 .photoshop {
-  	width: 60%;
-  	-moz-animation: photoshop 2s ease;
-  	-webkit-animation: photoshop 2s ease;
+   width: 60%;
+   animation: photoshop 2s ease; /* Standard property */
+   -moz-animation: photoshop 2s ease;
+   -webkit-animation: photoshop 2s ease;
 }
+
+/* Define keyframes for the illustrator animation */
+@keyframes illustrator {
+   0% {
+       transform: rotate(0deg) scale(1);
+   }
+   50% {
+       transform: rotate(180deg) scale(1.2);
+   }
+   100% {
+       transform: rotate(360deg) scale(1);
+   }
+}
+
 .illustrator {
-  	width: 55%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
+   width: 55%;
+   animation: illustrator 2s ease; /* Standard property */
+   -moz-animation: illustrator 2s ease;
+   -webkit-animation: illustrator 2s ease;
 }
+
+/* Define keyframes for the wordpress animation */
+@keyframes wordpress {
+   0% {
+       transform: translateY(0) scale(1);
+   }
+   50% {
+       transform: translateY(20px) scale(1.2);
+   }
+   100% {
+       transform: translateY(0) scale(1);
+   }
+}
+
 .wordpress {
-  	width: 50%;
-  	-moz-animation: wordpress 2s ease;
-  	-webkit-animation: wordpress 2s ease;
+   width: 50%;
+   animation: wordpress 2s ease; /* Standard property */
+   -moz-animation: wordpress 2s ease;
+   -webkit-animation: wordpress 2s ease;
 }
+
+/* Define keyframes for the css animation */
+@keyframes css {
+   0% {
+       transform: translateY(0) scale(1);
+   }
+   50% {
+       transform: translateY(20px) scale(1.2);
+   }
+   100% {
+       transform: translateY(0) scale(1);
+   }
+}
+
 .css {
-  	width: 90%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
+   width: 90%;
+   animation: css 2s ease; /* Standard property */
+   -moz-animation: css 2s ease;
+   -webkit-animation: css 2s ease;
 }
+
+/* Define keyframes for the html5 animation */
+@keyframes html5 {
+   0% {
+       transform: translateY(0) scale(1);
+   }
+   50% {
+       transform: translateY(20px) scale(1.2);
+   }
+   100% {
+       transform: translateY(0) scale(1);
+   }
+}
+
 .html5 {
-  	width: 80%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
+   width: 80%;
+   animation: html5 2s ease; /* Standard property */
+   -moz-animation: html5 2s ease;
+   -webkit-animation: html5 2s ease;
 }
+
+/* Define keyframes for the jquery animation */
+@keyframes jquery {
+   0% {
+       transform: scale(1);
+   }
+   50% {
+       transform: scale(1.2);
+   }
+   100% {
+       transform: scale(1);
+   }
+}
+
 .jquery {
-  	width: 50%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+   width: 50%;
+   animation: jquery 2s ease; /* Standard property */
+   -moz-animation: jquery 2s ease;
+   -webkit-animation: jquery 2s ease;
 }
+
 
 @-moz-keyframes photoshop {
   0%   { width: 0px;  }
@@ -720,7 +814,7 @@ call-to-action .button {
 .flexslider .slides > li { position: relative; }
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 /* Suggested container for slide animation setups. Can replace this with your own */
 .flex-container { zoom: 1; position: relative; }
 
@@ -757,7 +851,8 @@ call-to-action .button {
     margin: 0 6px;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
+
 }
 .flex-control-paging li a {
     width: 12px;
@@ -835,7 +930,7 @@ call-to-action .button {
    font: 15px/24px 'opensans-bold', sans-serif;
    margin: 12px 0;
    color: #EBEEEE;
-	display: inline-block;
+	display: block;
 	float: left;
    width: 26%;
 }
