@@ -208,8 +208,9 @@ ul#nav li.current a { color: #F06000; }
 }
 #about .profile-pic {
    position: relative;
-   width: 120px;
-   height: 120px;
+   max-width: 80%;
+   height: auto;
+   display: block;
    border-radius: 50%; /* Use 50% for a perfect circle */
 }
 
