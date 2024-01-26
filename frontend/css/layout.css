@@ -210,8 +210,17 @@ ul#nav li.current a { color: #F06000; }
    position: relative;
    width: 120px;
    height: 120px;
-   border-radius: 100%;
+   border-radius: 50%; /* Use 50% for a perfect circle */
 }
+
+/* Media query for screens with a maximum width of 768 pixels (adjust as needed) */
+@media (max-width: 768px) {
+   #about .profile-pic {
+      width: 100%; /* Make the image fill the container width */
+      height: auto; /* Automatically adjust the height to maintain aspect ratio */
+   }
+}
+
 #about .contact-details { width: 41.66667%; }
 #about .download {
    width: 58.33333%;
