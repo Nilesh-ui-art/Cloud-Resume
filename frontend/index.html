@@ -31,6 +31,27 @@
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jpw8V5z7I7MFSzpgAEUu1fuI9xYg9Cfj3vJMFIlD4tz51k0G8/4gC93qgXzrU0CCYF55hM6egWf1eJQqfER7Yw==" crossorigin="anonymous" />
+   <style>
+      /* Replace 'blue' with your desired color value */
+      .linkedin-icon {
+        color: blue;
+      }
+
+      .twitter-icon {
+         color: #1DA1F2;
+      }
+
+      .instagram-icon {
+         color: #cd486b;
+      }
+
+      .github-icon{
+         color: #2b3137;
+      }
+      
+    </style>
+
 </head>
 
 <body>
@@ -40,33 +61,51 @@
    <header id="home">
 
       <nav id="nav-wrap">
-
+         
          <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
 	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
             <li class="current"><a class="smoothscroll" href="#home">HOME</a></li>
             <li><a class="smoothscroll" href="#about">ABOUT</a></li>
-	         <li><a class="smoothscroll" href="#resume">RESUME</a></li>
+	         <li><a class="smoothscroll" href="#resume">RESUME</a></li>  
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
 
+      <script>
+         function scrollToInternalLink() {
+           // Replace "internalLinkId" with the ID of your internal link
+           var internalLinkId = "home"; // Updated to match the "HOME" link ID
+     
+           // Check if the internal link element exists
+           var internalLink = document.getElementById("home");
+     
+           if (internalLink) {
+             // Scroll to the internal link
+             internalLink.scrollIntoView({behavior: "smooth"});
+           }
+         }
+     
+         // Attach the function to the page load event
+         window.onload = scrollToInternalLink;
+       </script>
+     
       <div class="row banner">
          <div class="banner-text">
             <h1 class="responsive-headline">
-               <span style="color: #ff0000;">Hi,</span>
-               <span style="color: #e8edf1;">I'm Nilesh</span>
+               <span style="color: #ffffff;">Hi,</span>
+               <span style="color: #ffffff;">I'm Nilesh</span>
              </h1>
              
-            <p>THIS PAGE HAS: <a id="counter"></a> Visitors</p> 
+             <p><span style="color: #53594a;">This Page Has </span>&nbsp; <a id="counter"></a> <span style="color: #ebe8e3;"> Visitors</span></p> 
             <ul class="social">
                <h2 style="color: #5A5DF6;">Connect with me on: </h2>
                <br>
-               <li><a href="https://twitter.com/home"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/nilesh-nerlekar-642a33144"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://www.instagram.com/nileshhhh_nn?igsh=MW1jMHBzMjQ3dnpnaA%3D%3D&utm_source=qr"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="https://github.com/Nilesh-ui-art/Cloud-Resume"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/home" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a></li>
+               <li><a href="https://www.linkedin.com/in/nilesh-nerlekar-642a33144" target="_blank"><i class="fa fa-linkedin linkedin-icon"></i></a></li>
+               <li><a href="https://www.instagram.com/nileshhhh_nn?igsh=MW1jMHBzMjQ3dnpnaA%3D%3D&utm_source=qr" target="_blank"><i class="fa fa-instagram instagram-icon"></i></a></li>
+               <li><a href="https://github.com/Nilesh-ui-art/Cloud-Resume" target="_blank"><i class="fa fa-github github-icon"></i></a></li>
             </ul>
          </div>
       </div>

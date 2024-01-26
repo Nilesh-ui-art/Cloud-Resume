@@ -802,4 +802,78 @@ properly.
 
 
 
+/* Default Styles */
+
+/* ... (existing code) ... */
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+   body {
+       font-size: 14px; /* Adjust base font size for smaller screens */
+   }
+
+   h1 {
+       font-size: 24px;
+       line-height: 28px;
+       margin-bottom: 8px;
+   }
+
+   h2 {
+       font-size: 20px;
+       line-height: 26px;
+       margin-bottom: 4px;
+   }
+
+   h3 {
+       font-size: 18px;
+       line-height: 24px;
+       margin-bottom: 8px;
+   }
+
+   p {
+       margin-bottom: 16px;
+   }
+
+   blockquote {
+       margin: 20px 0;
+       padding-left: 20px;
+   }
+
+   .pagination .page-numbers,
+   .pagination .current,
+   .pagination .inactive {
+       font-size: 14px;
+       line-height: 18px;
+       padding: 6px 10px;
+       margin-bottom: 6px;
+   }
+
+   .button,
+   button,
+   input[type="submit"],
+   input[type="reset"],
+   input[type="button"] {
+       font-size: 14px;
+       padding: 10px 15px;
+       margin-bottom: 12px;
+   }
+
+   /* Add more styles as needed for smaller screens */
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+   /* Adjust styles for tablets */
+}
+
+/* Larger Screens Styles */
+@media only screen and (min-width: 992px) {
+   /* Adjust styles for larger screens */
+}
+
+/* ... (existing code) ... */
+
+
+
+
 
