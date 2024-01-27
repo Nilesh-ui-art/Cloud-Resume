@@ -15,43 +15,55 @@
    ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add your initial styles */
+    .animated-text {
+      font-size: 26px;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .static-part {
+      color: rgb(252, 252, 252);
+    }
+
+    .changing-part {
+      display: inline-block;
+      animation: changeText 4s infinite normal; /* Adjust the animation duration as needed */
+      color: #F06000;
+    }
+
+    @keyframes changeText {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+
 	<!-- CSS
     ================================================== -->
    <link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
+   <link rel="stylesheet" href="css/Animation.css">
 
    <!-- Script
    ================================================== -->
    <script src="js/modernizr.js"></script>
    <script src="main.js"></script>
+   <script src="Animation.js"></script>
 
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jpw8V5z7I7MFSzpgAEUu1fuI9xYg9Cfj3vJMFIlD4tz51k0G8/4gC93qgXzrU0CCYF55hM6egWf1eJQqfER7Yw==" crossorigin="anonymous" />
-   <style>
-      /* Replace 'blue' with your desired color value */
-      .linkedin-icon {
-        color: blue;
-      }
-
-      .twitter-icon {
-         color: #1DA1F2;
-      }
-
-      .instagram-icon {
-         color: #cd486b;
-      }
-
-      .github-icon{
-         color: #2b3137;
-      }
-
-    </style>
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jpw8V5z7I7MFSzpgAEUu1fuI9xYg9Cfj3vJMFIlD4tz51k0G8/4gC93qgXzrU0CCYF55hM6egWf1eJQqfER7Yw==" crossorigin="anonymous"/>
 </head>
 
 <body>
@@ -99,13 +111,32 @@
              </h1>
              
              <p><span style="color: #53594a;">This Page Has </span>&nbsp; <a id="counter"></a> <span style="color: #ebe8e3;">&nbsp; Visitors</span></p> 
+            <br>
+            <div class="animated-text">
+               <span class="static-part">Connect With Me On </span>
+               <span class="changing-part"> Socials </span>
+
+               <script>
+                  // JavaScript to change the content of the changing part at intervals
+                  const changingPart = document.querySelector('.changing-part');
+                  const textArray = ['LinkedIn' , 'Github', 'Twitter', 'Instagram']; // Add your desired text variations
+                  let currentIndex = 0;
+              
+                  function changeText() {
+                    changingPart.textContent = textArray[currentIndex];
+                    currentIndex = (currentIndex + 1) % textArray.length;
+                  }
+              
+                  // Change text every 5 seconds (adjust the interval as needed)
+                  setInterval(changeText, 3000);
+                </script>
+
             <ul class="social">
-               <h2 style="color: #5A5DF6;">Connect with me on: </h2>
                <br>
-               <li><a href="https://twitter.com/home" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/nilesh-nerlekar-642a33144" target="_blank"><i class="fa fa-linkedin linkedin-icon"></i></a></li>
-               <li><a href="https://www.instagram.com/nileshhhh_nn?igsh=MW1jMHBzMjQ3dnpnaA%3D%3D&utm_source=qr" target="_blank"><i class="fa fa-instagram instagram-icon"></i></a></li>
-               <li><a href="https://github.com/Nilesh-ui-art/Cloud-Resume" target="_blank"><i class="fa fa-github github-icon"></i></a></li>
+               <li><a href="https://twitter.com/home"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="https://www.linkedin.com/in/nilesh-nerlekar-642a33144"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="https://www.instagram.com/nileshhhh_nn?igsh=MW1jMHBzMjQ3dnpnaA%3D%3D&utm_source=qr"><i class="fa fa-instagram instagram-icon"></i></a></li>
+               <li><a href="https://github.com/Nilesh-ui-art/Cloud-Resume"><i class="fa fa-github"></i></a></li>
             </ul>
          </div>
       </div>
