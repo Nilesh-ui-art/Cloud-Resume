@@ -1,42 +1,44 @@
 name: deploy_backend
 
 on:
-  push: 
-      branches: [main]
-      paths:
+  push:
+    branches:
+      - main
+    paths:
       - 'backend/**'
 
 env:
-  AZURE_FUCNTIONAPPNAME_NAME: GetCloud Resume
+  AZURE_FUNCTIONAPP_NAME: 'GetCloudResume'  # Fixed typo in the variable name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: 'backend'
-  DOTNET_VERSION: 8.0.101
+  DOTNET_VERSION: '8.0.101'
 
-jobs: 
-  build-and-deploy: 
-  runs_on: windows-latest
-  steps:
-  - name: 'Checkout Github Action'
-    uses: actions/checkout@main
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
 
-  - name: 'Login via Azure CLI'
-    uses: azure/login@v1
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: 'Checkout Github Action'
+        uses: actions/checkout@v2  # Updated to use v2 of the checkout action
 
-  - name: Setup DotNet ${{ env.DOTNET_VERSION }} Enviroment
-    uses: actions/setup-dotnet@v1
-    with: 
-      dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-  - name: 'Resolve Project Dependencies Using DotNet'
-    shell: pwsh
-    run: |
-      pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
-      dotnet build --configuration Release --output ./output
-      popd
-  - name: 'Run Azure Functions Action'
-    uses: Azure/functions-action @v1
-    id: fa
-    with: 
-      app_name: ${{ env.AZURE_FUCNTIONAPP_NAME }}
-      package: '${{ env.AZURE_FUCNTIONAPP_PACAKGE_PATH }}/api/output'
+      - name: 'Setup DotNet ${{ env.DOTNET_VERSION }} Environment'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: 'Resolve Project Dependencies Using DotNet'
+        shell: pwsh
+        run: |
+          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
+          dotnet build --configuration Release --output ./output
+          popd
+
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api/output'
