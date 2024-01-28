@@ -1,0 +1,42 @@
+name: deploy_backend
+
+on:
+  push: 
+      branches: [main]
+      paths:
+      - 'backend/**'
+
+env:
+  AZURE_FUCNTIONAPPNAME_NAME: GetCloud Resume
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'backend'
+  DOTNET_VERSION: 8.0.101
+
+jobs: 
+  build-and-deploy: 
+  runs on: windows-latest
+  steps:
+  - name: 'Checkout Github Action'
+    uses: actions/checkout@main
+
+  - name: 'Login via Azure CLI'
+    uses: azure/login@v1
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+  - name: Setup DotNet ${{ env.DOTNET_VERSION }} Enviroment
+    uses: actions/setup-dotnet@v1
+    with: 
+      dotnet-version: ${{ env.DOTNET_VERSION }}
+
+  - name: 'Resolve Project Dependencies Using DotNet'
+    shell: pwsh
+    run: |
+      pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
+      dotnet build --configuration Release --output ./output
+      popd
+  - name: 'Run Azure Functions Action'
+    uses: Azure/functions-action @v1
+    id: fa
+    with: 
+      app_name: ${{ env.AZURE_FUCNTIONAPP_NAME }}
+      package: '${{ env.AZURE_FUCNTIONAPP_PACAKGE_PATH }}/api/output'
