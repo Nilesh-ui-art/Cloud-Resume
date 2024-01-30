@@ -208,20 +208,10 @@ ul#nav li.current a { color: #F06000; }
 }
 #about .profile-pic {
    position: relative;
-   max-width: 80%;
-   height: auto;
-   display: block;
-   border-radius: 50%; /* Use 50% for a perfect circle */
+   width: 120px;
+   height: 120px;
+   border-radius: 100%;
 }
-
-/* Media query for screens with a maximum width of 768 pixels (adjust as needed) */
-@media (max-width: 768px) {
-   #about .profile-pic {
-      width: 100%; /* Make the image fill the container width */
-      height: auto; /* Automatically adjust the height to maintain aspect ratio */
-   }
-}
-
 #about .contact-details { width: 41.66667%; }
 #about .download {
    width: 58.33333%;
