@@ -1,4 +1,6 @@
-🚀Azure Cloud Skills Showcase Repository**
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
+🚀Azure Cloud Skills Showcase Repository
 
 Welcome to my GitHub repository dedicated to demonstrating my proficiency in Azure cloud technologies and services! 🌐
 
